@@ -20,7 +20,7 @@ public class CountReward {
         Map<String, Integer> countMap = countSameSymbols(matrix, basicCharacters);
         List<String> appliedBonuses = getAppliedBonus(matrix, config);
 
-        winCombinationDataMap = FindWinCombinations.findAndAddWinCombinations(winCombinationDataMap, countMap, matrix, basicCharacters);
+        FindWinCombinations.findAndAddWinCombinations(winCombinationDataMap, countMap, matrix, basicCharacters);
 
         double reward = calculateRewardForOne(winCombinationDataMap, betAmount, appliedBonuses, countMap.keySet(), config);
         result.append("\nreward: ").append(reward);
@@ -31,7 +31,7 @@ public class CountReward {
         }
 
         if (reward > 0 && !appliedBonuses.isEmpty()){
-            result.append("\napplied_bonuses: " + appliedBonuses + "\n");
+            result.append("\napplied_bonuses: ").append(appliedBonuses).append("\n");
         }
 
         return result.toString();
@@ -45,11 +45,11 @@ public class CountReward {
             StringBuilder winCombinationForCharacter = new StringBuilder(character + ": ");
             tempWinCombinationDataMap.forEach((name, data) ->{
                 if (data.getSymbolsWithWinCombinations() != null && !data.getSymbolsWithWinCombinations().isEmpty() && data.getSymbolsWithWinCombinations().contains(character)){
-                    winCombinationForCharacter.append(name + ", ");
+                    winCombinationForCharacter.append(name).append(", ");
                 }
             });
             if (winCombinationForCharacter.length() > 3){
-                result.append(winCombinationForCharacter.delete(winCombinationForCharacter.length() - 2, winCombinationForCharacter.length()) + "\n");
+                result.append(winCombinationForCharacter.delete(winCombinationForCharacter.length() - 2, winCombinationForCharacter.length())).append("\n");
             }
         });
 
@@ -103,16 +103,16 @@ public class CountReward {
         return newReward.get();
     }
 
-    private Map<String, Integer> countSameSymbols(String [][] matrix, String[] basicCharacters) throws IOException {
+    private Map<String, Integer> countSameSymbols(String [][] matrix, String[] basicCharacters) {
         Map<String, Integer> countMap = new HashMap<>();
 
         for (String ch : basicCharacters) {
             countMap.put(ch, 0);
         }
 
-        for (int i = 0; i < matrix.length; i++) {
+        for (String[] strings : matrix) {
             for (int j = 0; j < matrix.length; j++) {
-                String current = matrix[i][j];
+                String current = strings[j];
                 if (countMap.containsKey(current)) {
                     countMap.put(current, countMap.get(current) + 1);
                 }
@@ -125,9 +125,9 @@ public class CountReward {
         Set<String> basicCharacters = getBonusSymbols(config).keySet();
         List<String> appliedBonuses = new ArrayList<>();
 
-        for (int i = 0; i < matrix.length; i++) {
+        for (String[] strings : matrix) {
             for (int j = 0; j < matrix.length; j++) {
-                String current = matrix[i][j];
+                String current = strings[j];
                 if (basicCharacters.contains(current)) {
                     appliedBonuses.add(current);
                 }

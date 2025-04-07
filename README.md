@@ -1,4 +1,4 @@
-# gameTestTask
+# GameTestTask
 
 For testing this project you should run this command through CLI like below:
 ```bash
@@ -6,4 +6,10 @@ java -jar build/libs/gameTestTask-all-1.0-SNAPSHOT.jar --config /config.json --b
 ```
 Also, you can edit probability of bonuses in class `GenerateMatrix.class` in variable `PROBABILITY_OF_BONUS`.
 
-Now it's 7 - higher probability than choosing 0.
+Now it's 7 (more representative for showing work with bonuses) - higher probability than choosing 0.
+
+# Description
+Problem statement: You need to build a scratch game, that will generate a matrix (for example 3x3) from symbols(based on probabilities for each individual cell) and based on winning combintations user either will win or lost.
+User will place a bet with any amount which we call betting amount in this assignment.
+
+There are two types of symbols: Standard Symbols, Bonus Symbols.

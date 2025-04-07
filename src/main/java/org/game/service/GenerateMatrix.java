@@ -12,7 +12,7 @@ import static org.game.service.ExtractSymbolsAndProbabilitiesFromJson.getProbabi
 public class GenerateMatrix {
 
     private static final int SIZE_OF_MATRIX = 3;
-    private static final int PROBABILITY_OF_BONUS = 7;
+    private static final int PROBABILITY_OF_BONUS = 0;
 
     public String[][] generateRandomMatrix(String config) throws IOException {
         Random random = new Random();
@@ -39,6 +39,7 @@ public class GenerateMatrix {
 
     private String getRandomSymbol(Random random, int i, int j, String config) throws IOException {
         Map<String, Integer> charactersWithProbabilities = getProbabilitiesByPosition(i, j, config);
+        assert charactersWithProbabilities != null;
         charactersWithProbabilities.put("X", PROBABILITY_OF_BONUS); // add bonus
         String[] characters = charactersWithProbabilities.keySet().toArray(new String[0]);
         int totalWeight = Arrays.stream(charactersWithProbabilities.values().toArray(new Integer[0])).reduce(0, Integer::sum);

@@ -19,8 +19,5 @@ public class Main {
         }
 
         StartGame.startGame(bettingAmount,  configFile);
-        //todo add tests
-        //todo refactor it somewhere if it need
-        //todo add it to git and send it recruiter
     }
 }
