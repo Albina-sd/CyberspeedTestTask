@@ -12,7 +12,7 @@ import static org.game.service.ExtractSymbolsAndProbabilitiesFromJson.getProbabi
 public class GenerateMatrix {
 
     private static final int SIZE_OF_MATRIX = 3;
-    private static final int PROBABILITY_OF_BONUS = 0;
+    private static final int PROBABILITY_OF_BONUS = 7;
 
     public String[][] generateRandomMatrix(String config) throws IOException {
         Random random = new Random();
