@@ -1,7 +1,9 @@
 # GameTestTask
 
-For testing this project you should run this command through CLI like below:
+For testing this project you should run these commands through CLI like below:
 ```bash
+./gradlew clean build
+./gradlew fatJar
 java -jar build/libs/gameTestTask-all-1.0-SNAPSHOT.jar --config /config.json --betting-amount 100
 ```
 Also, you can edit probability of bonuses in class `GenerateMatrix.class` in variable `PROBABILITY_OF_BONUS`.
