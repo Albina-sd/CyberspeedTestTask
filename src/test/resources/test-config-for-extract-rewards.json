@@ -1,0 +1,18 @@
+{
+  "symbols": {
+    "A": {
+      "type": "standard",
+      "reward_multiplier": 1.5
+    },
+    "B": {
+      "type": "bonus",
+      "reward_multiplier": 2.0,
+      "extra": 5,
+      "impact": "multiply"
+    },
+    "C": {
+      "type": "bonus",
+      "impact": "wild"
+    }
+  }
+}

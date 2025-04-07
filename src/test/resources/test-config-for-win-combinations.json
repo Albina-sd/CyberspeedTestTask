@@ -1,0 +1,18 @@
+{
+  "win_combinations": {
+    "same_symbol_3_times": {
+      "reward_multiplier": 2.0,
+      "when": "same_symbols",
+      "count": 3,
+      "group": "horizontal"
+    },
+    "same_symbol_diagonally": {
+      "reward_multiplier": 5.0,
+      "when": "same_symbols",
+      "group": "diagonal",
+      "covered_areas": [
+        ["0_0", "1_1", "2_2"]
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "probabilities": {
+    "standard_symbols": [
+      {
+        "column": 0,
+        "row": 0,
+        "symbols": {
+          "A": 50,
+          "B": 30,
+          "C": 20
+        }
+      },
+      {
+        "column": 1,
+        "row": 1,
+        "symbols": {
+          "X": 40,
+          "Y": 60
+        }
+      }
+    ],
+    "bonus_symbols": {
+      "symbols": {
+        "WILD": 10,
+        "SCATTER": 5
+      }
+    }
+  }
+}
